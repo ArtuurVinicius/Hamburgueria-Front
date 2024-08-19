@@ -1,0 +1,50 @@
+.category-manager {
+    padding: 20px;
+  }
+  
+  .category-form {
+    margin-bottom: 20px;
+  }
+  
+  .category-form input {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .category-form button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .category-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .category-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .category-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .category-list button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .category-list button:hover {
+    opacity: 0.8;
+  }
+  
