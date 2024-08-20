@@ -39,7 +39,7 @@ function CadCategorias() {
 
     return (
         <div className="category-manager">
-            <h1>Gerenciamento de Categorias</h1>
+            <h1 id='tituloGerenciamento'>Gerenciamento de Categorias</h1>
             <div className="category-form">
                 <input
                     type="text"

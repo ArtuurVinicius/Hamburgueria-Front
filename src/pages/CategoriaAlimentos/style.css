@@ -1,50 +1,75 @@
+/* Centraliza o contêiner principal */
 .category-manager {
-    padding: 20px;
-  }
-  
-  .category-form {
-    margin-bottom: 20px;
-  }
-  
-  .category-form input {
-    padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-  }
-  
-  .category-form button {
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .category-form button:hover {
-    background-color: #0056b3;
-  }
-  
-  .category-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .category-list li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .category-list button {
-    margin-left: 5px;
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .category-list button:hover {
-    opacity: 0.8;
-  }
-  
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Garante que o contêiner ocupa a altura total da tela */
+}
+
+/* Centraliza o formulário de categoria */
+.category-form {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-form input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  width: 300px; /* Ajusta a largura do input */
+  text-align: center; /* Centraliza o texto do input */
+}
+
+.category-form button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  width: 200px; /* Ajusta a largura do botão */
+  text-align: center; /* Centraliza o texto do botão */
+}
+
+.category-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Centraliza a lista de categorias */
+.category-list {
+  list-style-type: none;
+  padding: 0;
+  width: 100%; /* Garante que a lista ocupe a largura total disponível */
+  max-width: 400px; /* Define um máximo de largura */
+}
+
+.category-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Estiliza os botões da lista */
+.category-list button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.category-list button:hover {
+  opacity: 0.8;
+}
+
+#tituloGerenciamento {
+  background: linear-gradient(135deg, #8B1A1A, #5B0A30);
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+  font-size: 48px;
+  font-weight: bold; 
+}

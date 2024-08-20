@@ -7,7 +7,7 @@ function AppRouter() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cadastro-categorias" element={<CategoriaAlimentos />} />
+        <Route path="/categoria-alimentos" element={<CategoriaAlimentos />} />
       </Routes>
     </Router>
   );

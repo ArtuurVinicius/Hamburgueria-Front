@@ -1,19 +1,21 @@
-import { useState } from 'react'
-import './style.css'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './style.css';
 
 function Home() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const navigate = useNavigate();
 
   return (
     <div className='container'>
       <h1 id='pName'>Hamburgueria dos Guri</h1>
-      <button onClick={() => windowy.location.href='/cadastro-categorias'}>Cadastro de Categorias de Alimentos</button>
-      <button onClick={() => window.location.href='/cadastro-produtos'}>Cadastro de Produtos</button>
-      <button onClick={() => window.location.href='/cadastro-precos'}>Cadastro e Vinculação de Preços aos Produtos</button>
-      <button onClick={() => window.location.href='/cadastro-clientes'}>Cadastro de Clientes</button>
-      <button onClick={() => window.location.href='/relatorio-vendas'}>Relatório de Vendas por Produto e Categoria</button>
+      <button onClick={() => navigate('/categoria-alimentos')}>Cadastro de Categorias de Alimentos</button>
+      <button onClick={() => navigate('/cadastro-produtos')}>Cadastro de Produtos</button>
+      <button onClick={() => navigate('/cadastro-precos')}>Cadastro e Vinculação de Preços aos Produtos</button>
+      <button onClick={() => navigate('/cadastro-clientes')}>Cadastro de Clientes</button>
+      <button onClick={() => navigate('/relatorio-vendas')}>Relatório de Vendas por Produto e Categoria</button>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
