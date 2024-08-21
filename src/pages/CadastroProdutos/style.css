@@ -1,133 +1,176 @@
-/* Centraliza o container principal */
-.product-management {
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .product-management {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 20px;
-}
-
-/* Estiliza o formulário */
-.product-form {
+  }
+  
+  .product-form {
     width: 100%;
     max-width: 600px;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #d44a4a; /* Cor mais escura */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #d44a4a;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-/* Estiliza o título do formulário */
-.product-form h2 {
+  }
+  
+  .product-form h2 {
+    color: #333;
     text-align: center;
     margin-bottom: 20px;
-}
-
-/* Estiliza os labels do formulário */
-.product-form label {
-    display: block;
+  }
+  
+  .product-form label {
+    font-weight: bold;
     margin-bottom: 8px;
-}
-
-/* Estiliza os campos de entrada do formulário */
-.product-form input,
-.product-form textarea,
-.product-form select {
+    color: #555;
+    display: block;
+  }
+  
+  .product-form input,
+  .product-form textarea,
+  .product-form select {
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     margin-bottom: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-/* Estiliza os botões do formulário */
-.product-form button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  /* Estilização personalizada para o botão de input de arquivo */
+  .file-input-wrapper {
+    position: relative;
+    overflow: hidden;
     display: inline-block;
-}
-
-.product-form button:hover {
-    background-color: #0056b3;
-}
-
-/* Garante que os botões fiquem lado a lado */
-.product-form .button-group {
+  }
+  
+  .file-input-wrapper input[type="file"] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+  
+  .custom-file-button {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-block;
+    transition: background-color 0.3s;
+  }
+  
+  .custom-file-button:hover {
+    background-color: #d44a4a;
+    cursor: pointer;
+  }
+  
+  .product-form button {
+    padding: 10px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    width: 100%;
+    max-width: 150px;
+    margin-right: 10px;
+  }
+  
+  .product-form button:hover {
+    background-color: #d44a4a;
+  }
+  
+  .product-form .button-group {
     display: flex;
-    gap: 10px; /* Espaçamento entre os botões */
-}
-
-/* Estiliza a lista de produtos */
-.product-list {
+    gap: 10px;
+  }
+  
+  .product-list {
     width: 100%;
     max-width: 800px;
-}
-
-.product-list h2 {
+  }
+  
+  .product-list h2 {
+    color: #333;
     text-align: center;
     margin-bottom: 20px;
-}
-
-.product-list label {
+  }
+  
+  .product-list label {
+    font-weight: bold;
     margin-bottom: 8px;
+    color: #555;
     display: block;
-}
-
-.product-list select {
+  }
+  
+  .product-list select {
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.product-list table {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  .product-list table {
     width: 100%;
     border-collapse: collapse;
-}
-
-.product-list th,
-.product-list td {
+  }
+  
+  .product-list th,
+  .product-list td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #d44a4a; /* Linha de borda mais escura */
-}
-
-.product-list th {
-    background-color: #d44a4a; /* Cor mais escura */
+    border-bottom: 1px solid #d44a4a;
+  }
+  
+  .product-list th {
+    background-color: #d44a4a;
     color: white;
-}
-
-.product-list tr:hover {
-    background-color: #f1f1f1;
-}
-
-.product-list button {
+  }
+  
+  .product-list button {
     padding: 6px 12px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     background-color: #dc3545;
     color: white;
     font-size: 14px;
     cursor: pointer;
     margin-right: 5px;
-}
-
-.product-list button:hover {
+    transition: background-color 0.3s;
+  }
+  
+  .product-list button:hover {
     background-color: #c82333;
-}
-
-/* Adiciona a classe cadastro */
-.cadastro {
-    background-color: #d44a4a; /* Cor mais escura */
-}
+  }
+  
+  .cadastro {
+    background-color: #d44a4a;
+  }
+  

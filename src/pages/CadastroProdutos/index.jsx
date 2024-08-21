@@ -18,7 +18,7 @@ function CadProdutos() {
     setProducts([
       { id: 1, name: 'Cheeseburger', description: 'Delicious cheeseburger', category: 'Burgers' },
       { id: 2, name: 'French Fries', description: 'Crispy fries', category: 'Fries' },
-    ]); 
+    ]);
   }, []);
 
   const handleFormChange = (e) => {
@@ -77,14 +77,16 @@ function CadProdutos() {
         ></textarea>
 
         <label htmlFor="product-image">Imagem do Produto (opcional):</label>
-        <input
-          type="file"
-          id="product-image"
-          className="cadastro"
-          name="image"
-          accept="image/*"
-          onChange={handleFormChange}
-        />
+        <div className="file-input-wrapper">
+          <button type="button" className="custom-file-button">Escolher Arquivo</button>
+          <input
+            type="file"
+            id="product-image"
+            name="image"
+            accept="image/*"
+            onChange={handleFormChange}
+          />
+        </div>
 
         <label htmlFor="product-category">Categoria:</label>
         <select
@@ -103,10 +105,12 @@ function CadProdutos() {
           ))}
         </select>
 
-        <button className="botaoCadastro" type="submit">Salvar Produto</button>
-        <button className="botaoCadastro" type="reset" onClick={() => setForm({ name: '', description: '', image: null, category: '' })}>
-          Cancelar
-        </button>
+        <div className="button-group">
+          <button className="botaoCadastro" type="submit">Salvar Produto</button>
+          <button className="botaoCadastro" type="reset" onClick={() => setForm({ name: '', description: '', image: null, category: '' })}>
+            Cancelar
+          </button>
+        </div>
       </form>
 
       <div className="product-list">

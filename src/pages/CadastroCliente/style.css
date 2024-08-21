@@ -1,4 +1,3 @@
-/* Estilo geral */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -10,22 +9,19 @@ body {
     min-height: 100vh;
   }
   
-  /* Container principal */
   .container {
-    background-color: #ff6b6b;
+    background-color: #d44a4a;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 400px;
   }
   
-  /* Título principal */
   h1 {
     color: #333;
     text-align: center;
   }
   
-  /* Formulário */
   form {
     display: flex;
     flex-direction: column;
@@ -67,7 +63,6 @@ body {
     background-color: #d44a4a;
   }
   
-  /* Lista de Clientes */
   ul {
     list-style: none;
     padding: 0;
@@ -102,7 +97,6 @@ body {
     opacity: 0.9;
   }
   
-  /* Mensagens de Erro */
   p {
     color: red;
     font-weight: bold;

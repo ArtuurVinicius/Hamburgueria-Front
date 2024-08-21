@@ -1,75 +1,108 @@
-/* Centraliza o contêiner principal */
-.category-manager {
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: #d44a4a;
   padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+.category-manager {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* Garante que o contêiner ocupa a altura total da tela */
 }
 
-/* Centraliza o formulário de categoria */
 .category-form {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .category-form input {
-  padding: 10px;
+  padding: 8px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
-  width: 300px; /* Ajusta a largura do input */
-  text-align: center; /* Centraliza o texto do input */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+  text-align: center;
 }
 
 .category-form button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  padding: 10px;
+  background-color: #ff6b6b;
+  color: white;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
-  width: 200px; /* Ajusta a largura do botão */
-  text-align: center; /* Centraliza o texto do botão */
+  font-size: 16px;
+  width: 100%;
+  transition: background-color 0.3s;
 }
 
 .category-form button:hover {
-  background-color: #0056b3;
+  background-color: #d44a4a;
 }
 
-/* Centraliza a lista de categorias */
 .category-list {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
-  width: 100%; /* Garante que a lista ocupe a largura total disponível */
-  max-width: 400px; /* Define um máximo de largura */
+  width: 100%;
 }
 
 .category-list li {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
 }
 
-/* Estiliza os botões da lista */
 .category-list button {
-  margin-left: 5px;
   padding: 5px 10px;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.category-list button:first-child {
+  background-color: #007bff;
+  margin-right: 5px;
+}
+
+.category-list button:last-child {
+  background-color: #dc3545;
 }
 
 .category-list button:hover {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 #tituloGerenciamento {
   background: linear-gradient(135deg, #8B1A1A, #5B0A30);
-  -webkit-background-clip: text; 
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 48px;
-  font-weight: bold; 
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
 }
