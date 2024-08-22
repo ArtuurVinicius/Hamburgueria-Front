@@ -1,176 +1,194 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  .product-management {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-  }
-  
-  .product-form {
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #d44a4a;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .product-form h2 {
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .product-form label {
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #555;
-    display: block;
-  }
-  
-  .product-form input,
-  .product-form textarea,
-  .product-form select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 14px;
-  }
-  
-  /* Estilização personalizada para o botão de input de arquivo */
-  .file-input-wrapper {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-  }
-  
-  .file-input-wrapper input[type="file"] {
-    font-size: 100px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-  }
-  
-  .custom-file-button {
-    background-color: #ff6b6b;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    display: inline-block;
-    transition: background-color 0.3s;
-  }
-  
-  .custom-file-button:hover {
-    background-color: #d44a4a;
-    cursor: pointer;
-  }
-  
-  .product-form button {
-    padding: 10px;
-    background-color: #ff6b6b;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-    width: 100%;
-    max-width: 150px;
-    margin-right: 10px;
-  }
-  
-  .product-form button:hover {
-    background-color: #d44a4a;
-  }
-  
-  .product-form .button-group {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .product-list {
-    width: 100%;
-    max-width: 800px;
-  }
-  
-  .product-list h2 {
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .product-list label {
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #555;
-    display: block;
-  }
-  
-  .product-list select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 14px;
-  }
-  
-  .product-list table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .product-list th,
-  .product-list td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #d44a4a;
-  }
-  
-  .product-list th {
-    background-color: #d44a4a;
-    color: white;
-  }
-  
-  .product-list button {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 5px;
-    background-color: #dc3545;
-    color: white;
-    font-size: 14px;
-    cursor: pointer;
-    margin-right: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  .product-list button:hover {
-    background-color: #c82333;
-  }
-  
-  .cadastro {
-    background-color: #d44a4a;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.product-management {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.product-form {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #d44a4a;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-form h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.product-form label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #555;
+  display: block;
+}
+
+.product-form input,
+.product-form textarea,
+.product-form select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+/* Estilização personalizada para o botão de input de arquivo */
+.file-input-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.file-input-wrapper input[type="file"] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.custom-file-button {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.custom-file-button:hover {
+  background-color: #d44a4a;
+  cursor: pointer;
+}
+
+.product-form button {
+  padding: 10px;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  width: 100%;
+  max-width: 150px;
+  margin-right: 10px;
+}
+
+.product-form button:hover {
+  background-color: #d44a4a;
+}
+
+.product-form .button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.product-list-container {
+  width: 100%;
+  max-width: 800px;
+  min-height: 300px; /* Ajusta a altura mínima */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-list h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.product-list label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #555;
+  display: block;
+}
+
+.product-list select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.product-list {
+  width: 100%;
+}
+
+.product-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-list th,
+.product-list td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #d44a4a;
+}
+
+.product-list th {
+  background-color: #d44a4a;
+  color: white;
+}
+
+.product-list button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #dc3545;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: background-color 0.3s;
+}
+
+.product-list button:hover {
+  background-color: #c82333;
+}
+
+.no-products-message {
+  font-size: 16px;
+  color: #555;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.cadastro {
+  background-color: #d44a4a;
+}
+
+.botaoCadastro {
+  height: 58px;
+}

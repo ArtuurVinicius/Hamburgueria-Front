@@ -14,10 +14,10 @@ function CadProdutos() {
   const [categoryFilter, setCategoryFilter] = useState('');
 
   useEffect(() => {
-    setCategories(['Burgers', 'Fries', 'Drinks']); // Exemplo de categorias
+    setCategories(['Hamburgueres', 'Batatas Fritas', 'Bebidas']);
     setProducts([
-      { id: 1, name: 'Cheeseburger', description: 'Delicious cheeseburger', category: 'Burgers' },
-      { id: 2, name: 'French Fries', description: 'Crispy fries', category: 'Fries' },
+      { id: 1, name: 'X-Tudo', description: 'X-Tudo completo', category: 'Hamburgueres' },
+      { id: 2, name: 'Batata Frita', description: 'Batata frita com bacon', category: 'Batatas Fritas' },
     ]);
   }, []);
 
@@ -50,8 +50,15 @@ function CadProdutos() {
     categoryFilter ? p.category === categoryFilter : true
   );
 
+  const handleGoBack = () => {
+    window.history.back();
+  };
+
   return (
     <div className="product-management">
+      <div className="back-button">
+        <button onClick={handleGoBack}>Voltar</button>
+      </div>
       <form id="product-form" className="product-form" onSubmit={handleSubmit}>
         <h2>{selectedProduct ? 'Editar Produto' : 'Cadastro de Produto'}</h2>
 
@@ -113,7 +120,7 @@ function CadProdutos() {
         </div>
       </form>
 
-      <div className="product-list">
+      <div className="product-list-container">
         <h2>Lista de Produtos</h2>
 
         <label htmlFor="category-filter">Filtrar por Categoria:</label>
@@ -131,29 +138,37 @@ function CadProdutos() {
           ))}
         </select>
 
-        <table>
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Descrição</th>
-              <th>Categoria</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredProducts.map(product => (
-              <tr key={product.id}>
-                <td>{product.name}</td>
-                <td>{product.description}</td>
-                <td>{product.category}</td>
-                <td>
-                  <button onClick={() => setSelectedProduct(product)}>Editar</button>
-                  <button onClick={() => handleRemove(product.id)}>Remover</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="product-list">
+          {filteredProducts.length > 0 ? (
+            <table>
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Descrição</th>
+                  <th>Categoria</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredProducts.map(product => (
+                  <tr key={product.id}>
+                    <td>{product.name}</td>
+                    <td>{product.description}</td>
+                    <td>{product.category}</td>
+                    <td>
+                      <button onClick={() => setSelectedProduct(product)}>Editar</button>
+                      <button onClick={() => handleRemove(product.id)}>Remover</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <div className="no-products-message">
+              Nenhum produto cadastrado.
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

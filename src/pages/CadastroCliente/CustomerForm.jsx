@@ -7,13 +7,11 @@ const CustomerForm = ({ onSave, initialData }) => {
   const [error, setError] = useState('');
 
   const validateEmail = (email) => {
-    // Regex para validar o formato do email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
   const validatePhone = (phone) => {
-    // Regex para validar o formato do telefone +55 99 99999-9999
     const phoneRegex = /^\+55 \d{2} \d{5}-\d{4}$/;
     return phoneRegex.test(phone);
   };

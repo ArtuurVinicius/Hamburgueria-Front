@@ -31,8 +31,15 @@ const CadastroCliente = () => {
     setCustomers(updatedCustomers);
   };
 
+  const handleGoBack = () => {
+    window.history.back();
+  };
+
   return (
     <div className="container">
+      <div className="back-button">
+        <button onClick={handleGoBack}>Voltar</button>
+      </div>
       <h1>Cadastro de Clientes</h1>
       <CustomerForm 
         onSave={handleSave} 

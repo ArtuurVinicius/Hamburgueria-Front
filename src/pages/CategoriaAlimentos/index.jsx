@@ -37,8 +37,15 @@ function CadCategorias() {
         }
     };
 
+    const handleGoBack = () => {
+        window.history.back();
+    };
+
     return (
         <div className="category-manager">
+            <div className="back-button">
+                <button onClick={handleGoBack}>Voltar</button>
+            </div>
             <h1 id='tituloGerenciamento'>Gerenciamento de Categorias</h1>
             <div className="category-form">
                 <input
