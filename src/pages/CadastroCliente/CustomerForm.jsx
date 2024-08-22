@@ -12,7 +12,7 @@ const CustomerForm = ({ onSave, initialData }) => {
   };
 
   const validatePhone = (phone) => {
-    const phoneRegex = /^\+55 \d{2} \d{5}-\d{4}$/;
+    const phoneRegex = /^\d{11}$/;
     return phoneRegex.test(phone);
   };
 
