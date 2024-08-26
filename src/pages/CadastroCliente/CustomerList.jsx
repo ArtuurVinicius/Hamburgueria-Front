@@ -16,9 +16,9 @@ const CustomerList = ({ customers, onEdit, onDelete }) => {
             <div>
               <strong>Email:</strong> {customer.email}
             </div>
-            <div>
-              <button onClick={() => onEdit(customer.email)}>Editar</button>
-              <button onClick={() => onDelete(customer.email)}>Remover</button>
+            <div className='formActions'>
+              <button id='actionEdit' onClick={() => onEdit(customer.email)}>Editar</button>
+              <button id='actionRemove' onClick={() => onDelete(customer.email)}>Remover</button>
             </div>
           </li>
         ))}

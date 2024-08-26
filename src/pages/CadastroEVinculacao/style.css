@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-  background-color: #d44a4a;
+  background-color: #1D1D1D;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -53,18 +53,21 @@ input[type="number"] {
 
 button {
   padding: 10px;
-  background-color: #ff6b6b;
-  color: white;
+  background-color: #1D1D1D;
+  color: #fc8686;
   border: none;
   border-radius: 5px;
+  border: 3px solid #575757;
   cursor: pointer;
   font-size: 16px;
+  font-weight: 500;
   transition: background-color 0.3s;
-  margin-bottom: 5px;
 }
 
 button:hover {
-  background-color: #d44a4a;
+  border: 3px solid #fc8686;
+  color: #fc8686;
+  background-color: #2d1f1f;
 }
 
 ul {

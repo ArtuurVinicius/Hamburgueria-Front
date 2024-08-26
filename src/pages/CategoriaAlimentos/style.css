@@ -10,7 +10,7 @@ body {
 }
 
 .container {
-  background-color: #d44a4a;
+  background-color: #1D1D1D;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -46,7 +46,7 @@ body {
 .category-form button {
   padding: 10px;
   background-color: #ff6b6b;
-  color: white;
+  color: #111;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -99,7 +99,7 @@ body {
 
 #tituloGerenciamento {
   background: linear-gradient(135deg, #8B1A1A, #5B0A30);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 48px;
   font-weight: bold;

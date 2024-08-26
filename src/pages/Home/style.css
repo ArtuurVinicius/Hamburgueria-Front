@@ -11,7 +11,7 @@ button {
   padding: 10px 20px;
   font-size: 20px;
   background-color: #ff6b6b;
-  color: white;
+  color: #111;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -28,7 +28,7 @@ button:active {
 }
 
 #pName {
-  background: linear-gradient(135deg, #8B1A1A, #5B0A30); 
+  background: #E1E1E1; 
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 48px;
