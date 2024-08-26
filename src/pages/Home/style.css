@@ -29,6 +29,7 @@ button:active {
 
 #pName {
   background: linear-gradient(135deg, #8B1A1A, #5B0A30); 
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 48px;
   font-weight: bold; 
