@@ -8,7 +8,7 @@ function PriceList({ prices, onEdit, onRemove }) {
         {prices.map((price) => (
           <li key={price.id}>
             <div><strong>Produto:</strong> {price.product}</div>
-            <div><strong>Variação:</strong>Variação: {price.variation}</div>
+            <div><strong>Variação:</strong> {price.variation}</div>
             <div><strong>Preço:</strong> R${price.price.toFixed(2)}</div>
             <div className="formActions">
               <button id='actionEdit' onClick={() => onEdit(price.id)}>Editar</button>
