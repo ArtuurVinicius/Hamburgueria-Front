@@ -7,11 +7,13 @@ function PriceList({ prices, onEdit, onRemove }) {
       <ul>
         {prices.map((price) => (
           <li key={price.id}>
-            <div>Produto: {price.product}</div>
-            <div>Variação: {price.variation}</div>
-            <div>Preço: R${price.price.toFixed(2)}</div>
-            <button onClick={() => onEdit(price.id)}>Editar</button>
-            <button onClick={() => onRemove(price.id)}>Remover</button>
+            <div><strong>Produto:</strong> {price.product}</div>
+            <div><strong>Variação:</strong>Variação: {price.variation}</div>
+            <div><strong>Preço:</strong> R${price.price.toFixed(2)}</div>
+            <div className="formActions">
+              <button id='actionEdit' onClick={() => onEdit(price.id)}>Editar</button>
+              <button id='actionRemove' onClick={() => onRemove(price.id)}>Remover</button>
+            </div>
           </li>
         ))}
       </ul>

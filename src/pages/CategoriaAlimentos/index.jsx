@@ -53,8 +53,8 @@ function CadCategorias() {
                 {categories.map(category => (
                     <li key={category.id}>
                         <span>{category.name} ({category.productCount} produtos)</span>
-                        <button onClick={() => handleEditCategory(category.id)}>Editar</button>
-                        <button onClick={() => handleDeleteCategory(category.id)}>Excluir</button>
+                        <button id='actionEdit' onClick={() => handleEditCategory(category.id)}>Editar</button>
+                        <button id='actionRemove' onClick={() => handleDeleteCategory(category.id)}>Excluir</button>
                     </li>
                 ))}
             </ul>

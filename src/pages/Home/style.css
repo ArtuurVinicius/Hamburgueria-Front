@@ -12,19 +12,15 @@ button {
   font-size: 20px;
   background-color: #ff6b6b;
   color: #111;
-  border: none;
+  border: 3px solid #575757;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
-  transition: background-color 0.3s ease;
+  transition: 0.3s ease;
 }
 
 button:hover {
   background-color: #ff4757;
-}
-
-button:active {
-  background-color: #e84118;
 }
 
 #pName {

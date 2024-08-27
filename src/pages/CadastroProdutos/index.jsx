@@ -1,23 +1,33 @@
-import { useState, useEffect } from 'react';
-import './style.css';
+import { useState, useEffect } from "react";
+import "./style.css";
 
 function CadProdutos() {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [form, setForm] = useState({
-    name: '',
-    description: '',
+    name: "",
+    description: "",
     image: null,
-    category: '',
+    category: "",
   });
-  const [categoryFilter, setCategoryFilter] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState("");
 
   useEffect(() => {
-    setCategories(['Burgers', 'Fries', 'Drinks']); // Exemplo de categorias
+    setCategories(["Burgers", "Fries", "Drinks"]); // Exemplo de categorias
     setProducts([
-      { id: 1, name: 'Cheeseburger', description: 'Delicious cheeseburger', category: 'Burgers' },
-      { id: 2, name: 'French Fries', description: 'Crispy fries', category: 'Fries' },
+      {
+        id: 1,
+        name: "Cheeseburger",
+        description: "Delicious cheeseburger",
+        category: "Burgers",
+      },
+      {
+        id: 2,
+        name: "French Fries",
+        description: "Crispy fries",
+        category: "Fries",
+      },
     ]);
   }, []);
 
@@ -25,35 +35,37 @@ function CadProdutos() {
     const { name, value, type, files } = e.target;
     setForm({
       ...form,
-      [name]: type === 'file' ? files[0] : value,
+      [name]: type === "file" ? files[0] : value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (selectedProduct) {
-      setProducts(products.map(p =>
-        p.id === selectedProduct.id ? { ...selectedProduct, ...form } : p
-      ));
+      setProducts(
+        products.map((p) =>
+          p.id === selectedProduct.id ? { ...selectedProduct, ...form } : p
+        )
+      );
     } else {
       setProducts([...products, { ...form, id: products.length + 1 }]);
     }
-    setForm({ name: '', description: '', image: null, category: '' });
+    setForm({ name: "", description: "", image: null, category: "" });
     setSelectedProduct(null);
   };
 
   const handleRemove = (id) => {
-    setProducts(products.filter(p => p.id !== id));
+    setProducts(products.filter((p) => p.id !== id));
   };
 
-  const filteredProducts = products.filter(p =>
+  const filteredProducts = products.filter((p) =>
     categoryFilter ? p.category === categoryFilter : true
   );
 
   return (
     <div className="product-management">
       <form id="product-form" className="product-form" onSubmit={handleSubmit}>
-        <h2>{selectedProduct ? 'Editar Produto' : 'Cadastro de Produto'}</h2>
+        <h2>{selectedProduct ? "Editar Produto" : "Cadastro de Produto"}</h2>
 
         <label htmlFor="product-name">Nome do Produto:</label>
         <input
@@ -78,7 +90,9 @@ function CadProdutos() {
 
         <label htmlFor="product-image">Imagem do Produto (opcional):</label>
         <div className="file-input-wrapper">
-          <button type="button" className="custom-file-button">Escolher Arquivo</button>
+          <button type="button" className="custom-file-button">
+            Escolher Arquivo
+          </button>
           <input
             type="file"
             id="product-image"
@@ -98,7 +112,7 @@ function CadProdutos() {
           required
         >
           <option value="">Selecione uma categoria</option>
-          {categories.map(cat => (
+          {categories.map((cat) => (
             <option key={cat} value={cat}>
               {cat}
             </option>
@@ -106,8 +120,16 @@ function CadProdutos() {
         </select>
 
         <div className="button-group">
-          <button className="botaoCadastro" type="submit">Salvar Produto</button>
-          <button className="botaoCadastro" type="reset" onClick={() => setForm({ name: '', description: '', image: null, category: '' })}>
+          <button className="botaoCadastro" type="submit">
+            Salvar Produto
+          </button>
+          <button
+            className="botaoCadastro"
+            type="reset"
+            onClick={() =>
+              setForm({ name: "", description: "", image: null, category: "" })
+            }
+          >
             Cancelar
           </button>
         </div>
@@ -124,7 +146,7 @@ function CadProdutos() {
           onChange={(e) => setCategoryFilter(e.target.value)}
         >
           <option value="">Todas</option>
-          {categories.map(cat => (
+          {categories.map((cat) => (
             <option key={cat} value={cat}>
               {cat}
             </option>
@@ -141,14 +163,22 @@ function CadProdutos() {
             </tr>
           </thead>
           <tbody>
-            {filteredProducts.map(product => (
+            {filteredProducts.map((product) => (
               <tr key={product.id}>
                 <td>{product.name}</td>
                 <td>{product.description}</td>
                 <td>{product.category}</td>
                 <td>
-                  <button onClick={() => setSelectedProduct(product)}>Editar</button>
-                  <button onClick={() => handleRemove(product.id)}>Remover</button>
+                  <button
+                    onClick={() => setSelectedProduct(product)}
+                  >
+                    Editar
+                  </button>
+                  <button
+                    onClick={() => handleRemove(product.id)}
+                  >
+                    Remover
+                  </button>
                 </td>
               </tr>
             ))}

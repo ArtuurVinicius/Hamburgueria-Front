@@ -44,19 +44,20 @@ body {
 }
 
 .category-form button {
+  width: 100%;
   padding: 10px;
-  background-color: #ff6b6b;
-  color: #111;
-  border: none;
+  font-size: 20px;
+  background-color: #1D1D1D;
+  color: #fc8686;
+  border: 3px solid #575757;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
-  width: 100%;
-  transition: background-color 0.3s;
+  text-align: center;
+  transition: 0.3s ease;
 }
 
 .category-form button:hover {
-  background-color: #d44a4a;
+  background-color: #2D1F1F;
 }
 
 .category-list {
@@ -66,14 +67,17 @@ body {
 }
 
 .category-list li {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+  background-color: #242424;
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.category-list span {
+  margin-right: 5px;
 }
 
 .category-list button {
@@ -84,25 +88,30 @@ body {
   transition: opacity 0.3s;
 }
 
-.category-list button:first-child {
-  background-color: #007bff;
-  margin-right: 5px;
-}
-
-.category-list button:last-child {
-  background-color: #dc3545;
-}
-
 .category-list button:hover {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 #tituloGerenciamento {
-  background: linear-gradient(135deg, #8B1A1A, #5B0A30);
+  background: #e1e1e1;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 48px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
+}
+
+#actionEdit {
+  background-color: #20272e;
+  border: 3px solid #83bbf7;
+  color: #83bbf7;
+  margin-right: 5px;
+}
+
+#actionRemove {
+  background-color: #2e2021;
+  border: 3px solid #f7838f;
+  color: #f7838f;
+  margin-right: 5px;
 }

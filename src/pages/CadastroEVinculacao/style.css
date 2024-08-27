@@ -87,6 +87,10 @@ li div {
   margin-bottom: 5px;
 }
 
+li strong {
+  color: #545454;
+}
+
 li button {
   background-color: #007bff;
   margin-right: 5px;
@@ -104,4 +108,18 @@ p {
   color: red;
   font-weight: bold;
   text-align: center;
+}
+
+#actionEdit {
+  background-color: #20272e;
+  border: 3px solid #83bbf7;
+  color: #83bbf7;
+  margin-right: 5px;
+}
+
+#actionRemove {
+  background-color: #2e2021;
+  border: 3px solid #f7838f;
+  color: #f7838f;
+  margin-right: 5px;
 }
