@@ -22,7 +22,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #d44a4a;
+    background-color: #1d1d1d;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
@@ -30,7 +30,7 @@ body {
   }
   
   .product-form h2 {
-    color: #333;
+    color: #E1E1E1;
     text-align: center;
     margin-bottom: 20px;
   }
@@ -48,10 +48,16 @@ body {
     width: 100%;
     padding: 8px;
     margin-bottom: 12px;
-    border: 1px solid #ddd;
+    border: 3px solid #333;
     border-radius: 5px;
     box-sizing: border-box;
     font-size: 14px;
+    color: #E1E1E1;
+  }
+
+  .product-form select:focus {
+    border-color: #FC8686;
+    outline: none;
   }
   
   /* Estilização personalizada para o botão de input de arquivo */
@@ -87,21 +93,22 @@ body {
   }
   
   .product-form button {
-    padding: 10px;
-    background-color: #ff6b6b;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-    width: 100%;
     max-width: 150px;
     margin-right: 10px;
+    padding: 10px;
+    transition: 0.3s ease;
+    width: 100%;
+    font-size: 20px;
+    background-color: #1D1D1D;
+    color: #fc8686;
+    border: 3px solid #575757;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
   }
   
   .product-form button:hover {
-    background-color: #d44a4a;
+    background-color: #2D1F1F;
   }
   
   .product-form .button-group {
@@ -115,7 +122,7 @@ body {
   }
   
   .product-list h2 {
-    color: #333;
+    color: #E1E1E1;
     text-align: center;
     margin-bottom: 20px;
   }
@@ -123,7 +130,7 @@ body {
   .product-list label {
     font-weight: bold;
     margin-bottom: 8px;
-    color: #555;
+    color: #E1E1E1;
     display: block;
   }
   
@@ -131,10 +138,16 @@ body {
     width: 100%;
     padding: 8px;
     margin-bottom: 20px;
-    border: 1px solid #ddd;
+    border: 3px solid #333;
     border-radius: 5px;
     box-sizing: border-box;
     font-size: 14px;
+    color: #E1E1E1;
+  }
+
+  .product-list select:focus {
+    border-color: #FC8686;
+    outline: none;
   }
   
   .product-list table {
@@ -147,10 +160,11 @@ body {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #d44a4a;
+    color: #E1E1E1;
   }
   
   .product-list th {
-    background-color: #d44a4a;
+    background-color: #1d1d1d;
     color: white;
   }
   
@@ -168,9 +182,21 @@ body {
   
   .product-list button:hover {
     background-color: #c82333;
+    opacity: 0.7;
   }
   
   .cadastro {
-    background-color: #d44a4a;
+    background-color: #242424;
+  }
+
+  #actionEdit {
+    margin-bottom: 5px;
+  }
+  
+  .no-products {
+    text-align: center;
+    color: #fc8686;
+    padding: 20px;
+    font-style: italic;
   }
   

@@ -163,25 +163,35 @@ function CadProdutos() {
             </tr>
           </thead>
           <tbody>
-            {filteredProducts.map((product) => (
-              <tr key={product.id}>
-                <td>{product.name}</td>
-                <td>{product.description}</td>
-                <td>{product.category}</td>
-                <td>
-                  <button
-                    onClick={() => setSelectedProduct(product)}
-                  >
-                    Editar
-                  </button>
-                  <button
-                    onClick={() => handleRemove(product.id)}
-                  >
-                    Remover
-                  </button>
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((product) => (
+                <tr key={product.id}>
+                  <td>{product.name}</td>
+                  <td>{product.description}</td>
+                  <td>{product.category}</td>
+                  <td>
+                    <button
+                      id="actionEdit"
+                      onClick={() => setSelectedProduct(product)}
+                    >
+                      Editar
+                    </button>
+                    <button
+                      id="actionRemove"
+                      onClick={() => handleRemove(product.id)}
+                    >
+                      Remover
+                    </button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="4" className="no-products">
+                  Nenhum produto encontrado nesta categoria.
                 </td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       </div>
