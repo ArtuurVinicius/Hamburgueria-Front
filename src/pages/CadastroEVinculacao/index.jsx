@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PriceForm from "./PriceForm";
+import PriceForm from "./priceForm";
 import PriceList from "./PriceList";
 import './style.css';
 
@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Cadastro de Preços dos Produtos</h1>
+      <h1>Cadastro e Vinculação de Preços aos Produtos</h1>
       <PriceForm addOrUpdatePrice={addOrUpdatePrice} editingPrice={editingPrice} />
       <PriceList prices={prices} onEdit={editPrice} onRemove={removePrice} />
     </div>

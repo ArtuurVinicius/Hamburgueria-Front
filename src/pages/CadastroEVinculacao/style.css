@@ -37,18 +37,28 @@ form div {
 
 label {
   font-weight: bold;
-  margin-bottom: 5px;
-  color: #555;
+  margin-bottom: 8px;
+  color: #868686;
+  display: block;
 }
 
 input[type="text"],
-input[type="number"] {
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+input[type="number"],
+select {
   width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 3px solid #333;
+  border-radius: 5px;
   box-sizing: border-box;
   font-size: 14px;
+  color: #E1E1E1;
+  background-color: #1D1D1D;
+}
+
+select:focus {
+  border-color: #FC8686;
+  outline: none;
 }
 
 button {

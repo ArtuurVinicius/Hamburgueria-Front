@@ -21,7 +21,9 @@ function PriceForm({ addOrUpdatePrice, editingPrice }) {
       setVariation("");
       setPrice("");
     } else {
-      alert("Todos os campos são obrigatórios e o preço deve ser maior que zero.");
+      alert(
+        "Todos os campos são obrigatórios e o preço deve ser maior que zero."
+      );
     }
   };
 
@@ -38,13 +40,18 @@ function PriceForm({ addOrUpdatePrice, editingPrice }) {
       </div>
       <div>
         <label>Variação:</label>
-        <input
-          type="text"
+        <select
           value={variation}
           onChange={(e) => setVariation(e.target.value)}
           required
-        />
+        >
+          <option value="">Selecione uma variação</option>
+          <option value="Pequeno">Pequeno</option>
+          <option value="Médio">Médio</option>
+          <option value="Grande">Grande</option>
+        </select>
       </div>
+
       <div>
         <label>Preço:</label>
         <input
