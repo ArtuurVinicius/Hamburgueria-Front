@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { getProducts, createProduct, updateProduct, deleteProduct } from "../../services/productService";
 import "./style.css";
 
 function CadProdutos() {
@@ -15,20 +16,18 @@ function CadProdutos() {
 
   useEffect(() => {
     setCategories(["Burgers", "Fries", "Drinks"]); // Exemplo de categorias
-    setProducts([
-      {
-        id: 1,
-        name: "Cheeseburger",
-        description: "Delicious cheeseburger",
-        category: "Burgers",
-      },
-      {
-        id: 2,
-        name: "French Fries",
-        description: "Crispy fries",
-        category: "Fries",
-      },
-    ]);
+    
+    // Carregar os produtos da API
+    const fetchProducts = async () => {
+      try {
+        const productsData = await getProducts();
+        setProducts(productsData);
+      } catch (error) {
+        console.error("Erro ao buscar produtos", error);
+      }
+    };
+
+    fetchProducts();
   }, []);
 
   const handleFormChange = (e) => {
@@ -39,23 +38,35 @@ function CadProdutos() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (selectedProduct) {
-      setProducts(
-        products.map((p) =>
-          p.id === selectedProduct.id ? { ...selectedProduct, ...form } : p
-        )
-      );
-    } else {
-      setProducts([...products, { ...form, id: products.length + 1 }]);
+    try {
+      if (selectedProduct) {
+        // Atualizar produto existente
+        await updateProduct(selectedProduct.id, form);
+      } else {
+        // Criar novo produto
+        await createProduct(form);
+      }
+
+      // Atualizar lista de produtos
+      const productsData = await getProducts();
+      setProducts(productsData);
+      setForm({ name: "", description: "", image: null, category: "" });
+      setSelectedProduct(null);
+    } catch (error) {
+      console.error("Erro ao salvar produto", error);
     }
-    setForm({ name: "", description: "", image: null, category: "" });
-    setSelectedProduct(null);
   };
 
-  const handleRemove = (id) => {
-    setProducts(products.filter((p) => p.id !== id));
+  const handleRemove = async (id) => {
+    try {
+      await deleteProduct(id);
+      const productsData = await getProducts();
+      setProducts(productsData);
+    } catch (error) {
+      console.error("Erro ao remover produto", error);
+    }
   };
 
   const filteredProducts = products.filter((p) =>
