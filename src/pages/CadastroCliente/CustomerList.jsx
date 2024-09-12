@@ -10,10 +10,10 @@ const CustomerList = ({ customers, onEdit, onDelete }) => {
             <div>
               <strong>Nome:</strong> {customer.name}
             </div>
-            <div>
+            <div id="clienteTelefone">
               <strong>Telefone:</strong> {customer.phone}
             </div>
-            <div>
+            <div id="clienteEmail">
               <strong>Email:</strong> {customer.email}
             </div>
             <div className='formActions'>

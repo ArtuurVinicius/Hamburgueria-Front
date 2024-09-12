@@ -32,6 +32,7 @@ function PriceForm({ addOrUpdatePrice, editingPrice }) {
       <div>
         <label>Produto:</label>
         <input
+          id="precoProduto"
           type="text"
           value={product}
           onChange={(e) => setProduct(e.target.value)}
@@ -41,6 +42,7 @@ function PriceForm({ addOrUpdatePrice, editingPrice }) {
       <div>
         <label>Variação:</label>
         <select
+          id="variacaoProduto"
           value={variation}
           onChange={(e) => setVariation(e.target.value)}
           required
@@ -55,6 +57,7 @@ function PriceForm({ addOrUpdatePrice, editingPrice }) {
       <div>
         <label>Preço:</label>
         <input
+          id="precoProduto"
           type="number"
           value={price}
           onChange={(e) => setPrice(parseFloat(e.target.value))}

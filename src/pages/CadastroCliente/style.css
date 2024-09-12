@@ -133,3 +133,17 @@ body {
     background-color: #242424;
   }
   
+ #clienteNome{
+  background-color: #f4f4f4;
+  color: #000;
+ }
+
+ #clienteTelefone{
+  background-color: #f4f4f4;
+  color: #000;
+ }
+
+ #clienteEmail{
+  background-color: #f4f4f4;
+  color: #000;
+ }

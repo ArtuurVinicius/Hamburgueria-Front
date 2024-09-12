@@ -7,7 +7,7 @@ function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className='container'>
+    <div className='container' id='home'>
       <h1 id='pName'>Hamburgueria</h1>
       <button onClick={() => navigate('/categoria-alimentos')}>Cadastro de Categorias de Alimentos</button>
       <button onClick={() => navigate('/cadastro-produtos')}>Cadastro de Produtos</button>

@@ -93,7 +93,7 @@ body {
 }
 
 #tituloGerenciamento {
-  background: #e1e1e1;
+  background: #000;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 48px;
@@ -115,3 +115,13 @@ body {
   color: #f7838f;
   margin-right: 5px;
 }
+
+#nomeCategoria {
+  background-color: #f4f4f4;
+}
+
+#adicionarCategoria {
+  background-color: #f4f4f4;
+  color: #000;
+}
+

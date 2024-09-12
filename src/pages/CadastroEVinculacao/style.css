@@ -15,9 +15,9 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 100%; /* Garante que o container não ultrapasse a largura da viewport */
+  max-width: 100%; 
   width: 400px;
-  box-sizing: border-box; /* Inclui o padding na largura */
+  box-sizing: border-box;
 }
 
 h1 {
@@ -132,4 +132,22 @@ p {
   border: 3px solid #f7838f;
   color: #f7838f;
   margin-right: 5px;
+}
+
+#precoProduto {
+  background-color: #f4f4f4;
+}
+
+#variacaoProduto {
+  background-color: #f4f4f4;
+  color: #000;
+}
+
+#precoProduto {
+  background-color: #f4f4f4;
+  color: #000;
+}
+
+#cadastroPreco {
+  width: 450px;
 }

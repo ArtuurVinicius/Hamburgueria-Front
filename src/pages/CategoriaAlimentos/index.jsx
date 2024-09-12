@@ -66,13 +66,14 @@ function CadCategorias() {
         <div className="category-manager">
             <h1 id='tituloGerenciamento'>Gerenciamento de Categorias</h1>
             <div className="category-form">
-                <input
+                <input  
+                    id="nomeCategoria"
                     type="text"
                     value={categoryName}
                     onChange={(e) => setCategoryName(e.target.value)}
                     placeholder="Nome da Categoria"
                 />
-                <button onClick={handleAddCategory}>Adicionar Categoria</button>
+                <button id="adicionarCategoria" onClick={handleAddCategory}>Adicionar Categoria</button>
             </div>
             <ul className="category-list">
                 {categories.map(category => (

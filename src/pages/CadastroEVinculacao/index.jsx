@@ -32,7 +32,7 @@ function App() {
   };
 
   return (
-    <div className="container">
+    <div className="container" id="cadastroPreco">
       <h1>Cadastro e Vinculação de Preços aos Produtos</h1>
       <PriceForm addOrUpdatePrice={addOrUpdatePrice} editingPrice={editingPrice} />
       <PriceList prices={prices} onEdit={editPrice} onRemove={removePrice} />

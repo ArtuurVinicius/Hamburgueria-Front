@@ -30,3 +30,8 @@ button:hover {
   font-size: 48px;
   font-weight: bold; 
 }
+
+#home {
+  width: 450px;
+  height: 450px;
+}
