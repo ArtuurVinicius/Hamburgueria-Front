@@ -18,6 +18,7 @@ body {
   
   .product-form {
     width: 100%;
+    min-width: 600px;
     max-width: 600px;
     padding: 20px;
     border-radius: 10px;
