@@ -77,7 +77,7 @@ body {
   }
   
   .custom-file-button {
-    background-color: #ff6b6b;
+    background-color: #000000;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
@@ -203,4 +203,12 @@ body {
   
 #product-name {
   background-color: #f4f4f4;
+}
+
+#product-category {
+  color: #000000;
+}
+
+#product-image {
+  color: #000000;
 }
