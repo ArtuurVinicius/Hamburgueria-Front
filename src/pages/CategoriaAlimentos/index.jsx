@@ -7,7 +7,6 @@ function CadCategorias() {
     const [categoryName, setCategoryName] = useState('');
     const [editingCategory, setEditingCategory] = useState(null);
 
-    // Carrega as categorias do backend ao montar o componente
     useEffect(() => {
         const loadCategories = async () => {
             const categoryData = await getCategory();
@@ -29,10 +28,8 @@ function CadCategorias() {
 
         const newCategory = { name: categoryName, productCount: 0 };
 
-        // Chamada para criar uma nova categoria no backend
         await createCategory(newCategory);
         
-        // Atualiza a lista de categorias
         const updatedCategories = await getCategory();
         setCategories(updatedCategories);
 
@@ -42,10 +39,10 @@ function CadCategorias() {
     const handleEditCategory = async (id) => {
         const newName = prompt('Digite o novo nome da categoria:');
         if (newName && !categories.some(cat => cat.name === newName)) {
-            // Atualiza a categoria no backend
+
             await updateCategory(id, { name: newName });
             
-            // Atualiza a lista de categorias
+
             const updatedCategories = await getCategory();
             setCategories(updatedCategories);
         } else {
@@ -56,10 +53,10 @@ function CadCategorias() {
 
     const handleDeleteCategory = async (id) => {
         if (window.confirm('Tem certeza de que deseja excluir esta categoria?')) {
-            // Chamada para deletar a categoria no backend
+
             await deleteCategory(id);
             
-            // Atualiza a lista de categorias
+
             const updatedCategories = await getCategory();
             setCategories(updatedCategories);
         }
