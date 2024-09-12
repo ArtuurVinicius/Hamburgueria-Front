@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getCategory, createCategory, updateCategory, deleteCategory } from "../../services/categoryService";
 import './style.css';
 
 function CadCategorias() {
@@ -6,7 +7,16 @@ function CadCategorias() {
     const [categoryName, setCategoryName] = useState('');
     const [editingCategory, setEditingCategory] = useState(null);
 
-    const handleAddCategory = () => {
+    // Carrega as categorias do backend ao montar o componente
+    useEffect(() => {
+        const loadCategories = async () => {
+            const categoryData = await getCategory();
+            setCategories(categoryData);
+        };
+        loadCategories();
+    }, []);
+
+    const handleAddCategory = async () => {
         if (categoryName.trim() === '') {
             alert('O nome da categoria não pode estar vazio.');
             return;
@@ -17,23 +27,41 @@ function CadCategorias() {
             return;
         }
 
-        setCategories([...categories, { id: Date.now(), name: categoryName, productCount: 0 }]);
+        const newCategory = { name: categoryName, productCount: 0 };
+
+        // Chamada para criar uma nova categoria no backend
+        await createCategory(newCategory);
+        
+        // Atualiza a lista de categorias
+        const updatedCategories = await getCategory();
+        setCategories(updatedCategories);
+
         setCategoryName('');
     };
 
-    const handleEditCategory = (id) => {
+    const handleEditCategory = async (id) => {
         const newName = prompt('Digite o novo nome da categoria:');
         if (newName && !categories.some(cat => cat.name === newName)) {
-            setCategories(categories.map(cat => cat.id === id ? { ...cat, name: newName } : cat));
+            // Atualiza a categoria no backend
+            await updateCategory(id, { name: newName });
+            
+            // Atualiza a lista de categorias
+            const updatedCategories = await getCategory();
+            setCategories(updatedCategories);
         } else {
             alert('Nome inválido ou já existente.');
         }
         setEditingCategory(null);
     };
 
-    const handleDeleteCategory = (id) => {
+    const handleDeleteCategory = async (id) => {
         if (window.confirm('Tem certeza de que deseja excluir esta categoria?')) {
-            setCategories(categories.filter(cat => cat.id !== id));
+            // Chamada para deletar a categoria no backend
+            await deleteCategory(id);
+            
+            // Atualiza a lista de categorias
+            const updatedCategories = await getCategory();
+            setCategories(updatedCategories);
         }
     };
 
