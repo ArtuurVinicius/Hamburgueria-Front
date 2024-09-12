@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #2EBFA5;
     margin: 0;
     padding: 0;
     display: flex;
@@ -23,7 +23,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #003c6a;
+    background-color: #2EBFA5;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
@@ -44,8 +44,8 @@ body {
   }
   
   .product-form input,
-  .product-form textarea,
-  .product-form select {
+.product-form textarea,
+.product-form select {
     width: 100%;
     padding: 8px;
     margin-bottom: 12px;
@@ -53,15 +53,15 @@ body {
     border-radius: 5px;
     box-sizing: border-box;
     font-size: 14px;
-    color: #E1E1E1;
-  }
+    color: #f4f4f4; 
+    background-color: #f4f4f4;
+}
 
   .product-form select:focus {
     border-color: #f55151;
     outline: none;
   }
   
-  /* Estilização personalizada para o botão de input de arquivo */
   .file-input-wrapper {
     position: relative;
     overflow: hidden;
@@ -100,7 +100,7 @@ body {
     transition: 0.3s ease;
     width: 100%;
     font-size: 20px;
-    background-color: #1D1D1D;
+    background-color: #F4F4F4;
     color: #fc8686;
     border: 3px solid #575757;
     border-radius: 5px;
@@ -201,3 +201,6 @@ body {
     font-style: italic;
   }
   
+#product-name {
+  background-color: #f4f4f4;
+}
