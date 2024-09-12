@@ -18,12 +18,11 @@ body {
   
   .product-form {
     width: 100%;
-    min-width: 600px;
     max-width: 600px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #1d1d1d;
+    background-color: #003c6a;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
@@ -57,7 +56,7 @@ body {
   }
 
   .product-form select:focus {
-    border-color: #ffffff;
+    border-color: #f55151;
     outline: none;
   }
   
@@ -123,7 +122,7 @@ body {
   }
   
   .product-list h2 {
-    color: #E1E1E1;
+    color: #000000;
     text-align: center;
     margin-bottom: 20px;
   }
@@ -131,7 +130,7 @@ body {
   .product-list label {
     font-weight: bold;
     margin-bottom: 8px;
-    color: #E1E1E1;
+    color: #000000;
     display: block;
   }
   
