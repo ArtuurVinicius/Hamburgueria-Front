@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { getCategory, createCategory, updateCategory, deleteCategory } from "../../services/categoryService";
 import './style.css';
+import { useNavigate } from 'react-router-dom'; // Se estiver usando React Router
 
 function CadCategorias() {
     const [categories, setCategories] = useState([]);
     const [categoryName, setCategoryName] = useState('');
     const [editingCategory, setEditingCategory] = useState(null);
+    const navigate = useNavigate(); // Hook para navegar entre páginas
 
     useEffect(() => {
         const loadCategories = async () => {
@@ -62,8 +64,14 @@ function CadCategorias() {
         }
     };
 
+    // Função para voltar para a página anterior
+    const handleGoBack = () => {
+        navigate(-1); // Volta para a página anterior
+    };
+
     return (
         <div className="category-manager">
+            <button id="voltar" onClick={handleGoBack}>Voltar</button> {/* Botão de voltar */}
             <h1 id='tituloGerenciamento'>Gerenciamento de Categorias</h1>
             <div className="category-form">
                 <input  

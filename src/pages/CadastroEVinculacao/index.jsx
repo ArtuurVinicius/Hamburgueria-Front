@@ -9,7 +9,6 @@ function App() {
 
   const addOrUpdatePrice = (priceData) => {
     if (editingPrice) {
-      // Update existing price
       setPrices((prevPrices) =>
         prevPrices.map((price) =>
           price.id === editingPrice.id ? priceData : price
@@ -17,7 +16,6 @@ function App() {
       );
       setEditingPrice(null);
     } else {
-      // Add new price
       setPrices([...prices, { ...priceData, id: Date.now() }]);
     }
   };
@@ -33,6 +31,7 @@ function App() {
 
   return (
     <div className="container" id="cadastroPreco">
+      
       <h1>Cadastro e Vinculação de Preços aos Produtos</h1>
       <PriceForm addOrUpdatePrice={addOrUpdatePrice} editingPrice={editingPrice} />
       <PriceList prices={prices} onEdit={editPrice} onRemove={removePrice} />

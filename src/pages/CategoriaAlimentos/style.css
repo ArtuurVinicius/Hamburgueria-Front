@@ -125,3 +125,23 @@ body {
   color: #000;
 }
 
+.category-manager {
+  position: relative;
+}
+
+#voltar {
+  background-color: #2EBFA5;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  position: absolute; 
+  top: -250px;
+  left: -450px;
+}
+
+#voltar:hover {
+  background-color: #28A592;
+}

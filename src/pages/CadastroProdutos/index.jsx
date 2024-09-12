@@ -15,9 +15,8 @@ function CadProdutos() {
   const [categoryFilter, setCategoryFilter] = useState("");
 
   useEffect(() => {
-    setCategories(["Burgers", "Fries", "Drinks"]); // Exemplo de categorias
+    setCategories(["Burgers", "Fries", "Drinks"]); 
     
-    // Carregar os produtos da API
     const fetchProducts = async () => {
       try {
         const productsData = await getProducts();
@@ -42,14 +41,11 @@ function CadProdutos() {
     e.preventDefault();
     try {
       if (selectedProduct) {
-        // Atualizar produto existente
         await updateProduct(selectedProduct.id, form);
       } else {
-        // Criar novo produto
         await createProduct(form);
       }
 
-      // Atualizar lista de produtos
       const productsData = await getProducts();
       setProducts(productsData);
       setForm({ name: "", description: "", image: null, category: "" });
@@ -73,8 +69,31 @@ function CadProdutos() {
     categoryFilter ? p.category === categoryFilter : true
   );
 
+  const handleGoBack = () => {
+    window.history.back();
+  };
+
   return (
     <div className="product-management">
+      <button 
+        id="voltar" 
+        onClick={handleGoBack} 
+        style={{ 
+          position: 'absolute', 
+          top: '10px', 
+          left: '10px', 
+          backgroundColor: '#2EBFA5', 
+          color: 'white', 
+          border: 'none', 
+          padding: '10px 20px', 
+          borderRadius: '5px', 
+          cursor: 'pointer', 
+          fontSize: '16px' 
+        }}
+      >
+        Voltar
+      </button>
+
       <form id="product-form" className="product-form" onSubmit={handleSubmit}>
         <h2>{selectedProduct ? "Editar Produto" : "Cadastro de Produto"}</h2>
 
