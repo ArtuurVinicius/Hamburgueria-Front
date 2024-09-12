@@ -56,7 +56,7 @@ body {
   }
 
   .product-form select:focus {
-    border-color: #FC8686;
+    border-color: #ffffff;
     outline: none;
   }
   
