@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { getCategory, createCategory, updateCategory, deleteCategory } from "../../services/categoryService";
 import './style.css';
-import { useNavigate } from 'react-router-dom'; // Se estiver usando React Router
+import { useNavigate } from 'react-router-dom';
 
 function CadCategorias() {
     const [categories, setCategories] = useState([]);
     const [categoryName, setCategoryName] = useState('');
     const [editingCategory, setEditingCategory] = useState(null);
-    const navigate = useNavigate(); // Hook para navegar entre páginas
+    const navigate = useNavigate();
 
     useEffect(() => {
         const loadCategories = async () => {
@@ -58,15 +58,13 @@ function CadCategorias() {
 
             await deleteCategory(id);
             
-
             const updatedCategories = await getCategory();
             setCategories(updatedCategories);
         }
     };
 
-    // Função para voltar para a página anterior
     const handleGoBack = () => {
-        navigate(-1); // Volta para a página anterior
+        navigate(-1);
     };
 
     return (

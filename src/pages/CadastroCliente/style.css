@@ -112,16 +112,16 @@ body {
   }
 
   #actionEdit {
-    background-color: #20272e;
+    background-color: #2EBFA5;
     border: 3px solid #83bbf7;
-    color: #83bbf7;
+    color: #000;
     margin-right: 5px;
   }
 
   #actionRemove {
-    background-color: #2e2021;
+    background-color: #2EBFA5;
     border: 3px solid #f7838f;
-    color: #f7838f;
+    color: #000;
     margin-right: 5px;
   }
 
