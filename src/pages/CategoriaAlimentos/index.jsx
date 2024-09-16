@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { getCategory, createCategory, updateCategory, deleteCategory } from "../../services/categoryService";
 import './style.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Se estiver usando React Router
 
 function CadCategorias() {
     const [categories, setCategories] = useState([]);
     const [categoryName, setCategoryName] = useState('');
     const [editingCategory, setEditingCategory] = useState(null);
-    const navigate = useNavigate();
+    const navigate = useNavigate(); // Hook para navegar entre páginas
 
     useEffect(() => {
         const loadCategories = async () => {
@@ -38,11 +38,11 @@ function CadCategorias() {
         setCategoryName('');
     };
 
-    const handleEditCategory = async (id) => {
+    const handleEditCategory = async (idCategory) => {
         const newName = prompt('Digite o novo nome da categoria:');
         if (newName && !categories.some(cat => cat.name === newName)) {
 
-            await updateCategory(id, { name: newName });
+            await updateCategory(idCategory, { name: newName });
             
 
             const updatedCategories = await getCategory();
@@ -53,18 +53,20 @@ function CadCategorias() {
         setEditingCategory(null);
     };
 
-    const handleDeleteCategory = async (id) => {
+    const handleDeleteCategory = async (idCategory) => {
         if (window.confirm('Tem certeza de que deseja excluir esta categoria?')) {
 
-            await deleteCategory(id);
+            await deleteCategory(idCategory);
             
+
             const updatedCategories = await getCategory();
             setCategories(updatedCategories);
         }
     };
 
+    // Função para voltar para a página anterior
     const handleGoBack = () => {
-        navigate(-1);
+        navigate(-1); // Volta para a página anterior
     };
 
     return (
@@ -83,10 +85,10 @@ function CadCategorias() {
             </div>
             <ul className="category-list">
                 {categories.map(category => (
-                    <li key={category.id} id="categoria">
+                    <li key={category.idCategory} id="categoria"> {/* Alterado para idCategory */}
                         <span>{category.name} ({category.productCount} produtos)</span>
-                        <button id='actionEdit' onClick={() => handleEditCategory(category.id)}>Editar</button>
-                        <button id='actionRemove' onClick={() => handleDeleteCategory(category.id)}>Excluir</button>
+                        <button id='actionEdit' onClick={() => handleEditCategory(category.idCategory)}>Editar</button> {/* Alterado para idCategory */}
+                        <button id='actionRemove' onClick={() => handleDeleteCategory(category.idCategory)}>Excluir</button> {/* Alterado para idCategory */}
                     </li>
                 ))}
             </ul>
