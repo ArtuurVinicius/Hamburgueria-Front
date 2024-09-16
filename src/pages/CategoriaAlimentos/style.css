@@ -103,14 +103,14 @@ body {
 }
 
 #actionEdit {
-  background-color: #20272e;
+  background-color: #f4f4f4;
   border: 3px solid #83bbf7;
   color: #83bbf7;
   margin-right: 5px;
 }
 
 #actionRemove {
-  background-color: #2e2021;
+  background-color: #f4f4f4;
   border: 3px solid #f7838f;
   color: #f7838f;
   margin-right: 5px;
@@ -144,4 +144,9 @@ body {
 
 #voltar:hover {
   background-color: #28A592;
+}
+
+#categoria {
+  background-color: #f4f4f4;
+  color: #000;
 }
