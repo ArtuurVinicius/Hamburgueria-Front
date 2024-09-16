@@ -6,7 +6,7 @@ const CustomerList = ({ customers, onEdit, onDelete }) => {
       <h2>Lista de Clientes</h2>
       <ul>
         {customers.map((customer) => (
-          <li key={customer.email}>
+          <li key={customer.email} id='cliente'>
             <div>
               <strong>Nome:</strong> {customer.name}
             </div>
