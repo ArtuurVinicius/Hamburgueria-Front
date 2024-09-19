@@ -11,26 +11,27 @@ button {
   padding: 10px 20px;
   font-size: 20px;
   background-color: #ff6b6b;
-  color: white;
-  border: none;
+  color: #111;
+  border: 3px solid #575757;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
-  transition: background-color 0.3s ease;
+  transition: 0.3s ease;
 }
 
 button:hover {
-  background-color: #ff4757;
-}
-
-button:active {
-  background-color: #e84118;
+  background-color: #fdfdfd;
 }
 
 #pName {
-  background: linear-gradient(135deg, #8B1A1A, #5B0A30);
-  -webkit-background-clip: text; 
+  background: #E1E1E1; 
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 48px;
   font-weight: bold; 
+}
+
+#home {
+  width: 450px;
+  height: 450px;
 }

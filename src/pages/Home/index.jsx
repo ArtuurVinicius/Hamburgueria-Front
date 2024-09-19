@@ -7,13 +7,12 @@ function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className='container'>
-      <h1 id='pName'>Hamburgueria dos Guri</h1>
+    <div className='container' id='home'>
+      <h1 id='pName'>Hamburgueria</h1>
       <button onClick={() => navigate('/categoria-alimentos')}>Cadastro de Categorias de Alimentos</button>
       <button onClick={() => navigate('/cadastro-produtos')}>Cadastro de Produtos</button>
       <button onClick={() => navigate('/cadastro-precos')}>Cadastro e Vinculação de Preços aos Produtos</button>
       <button onClick={() => navigate('/cadastro-clientes')}>Cadastro de Clientes</button>
-      <button onClick={() => navigate('/relatorio-vendas')}>Relatório de Vendas por Produto e Categoria</button>
     </div>
   );
 }

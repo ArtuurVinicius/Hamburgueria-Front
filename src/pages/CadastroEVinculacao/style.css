@@ -1,0 +1,153 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden; /* Evita o scroll horizontal */
+}
+
+.container {
+  background-color: #1D1D1D;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 100%; 
+  width: 400px;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #868686;
+  display: block;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 3px solid #333;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #E1E1E1;
+  background-color: #1D1D1D;
+}
+
+select:focus {
+  border-color: #FC8686;
+  outline: none;
+}
+
+button {
+  padding: 10px;
+  background-color: #1D1D1D;
+  color: #fc8686;
+  border: none;
+  border-radius: 5px;
+  border: 3px solid #575757;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  border: 3px solid #fc8686;
+  color: #fc8686;
+  background-color: #2d1f1f;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+li div {
+  margin-bottom: 5px;
+}
+
+li strong {
+  color: #545454;
+}
+
+li button {
+  background-color: #007bff;
+  margin-right: 5px;
+}
+
+li button:last-child {
+  background-color: #dc3545;
+}
+
+li button:hover {
+  opacity: 0.9;
+}
+
+p {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+#actionEdit {
+  background-color: #f4f4f4;
+  border: 3px solid #83bbf7;
+  color: #83bbf7;
+  margin-right: 5px;
+}
+
+#actionRemove {
+  background-color: #f4f4f4;
+  border: 3px solid #f7838f;
+  color: #f7838f;
+  margin-right: 5px;
+}
+
+#precoProduto {
+  background-color: #f4f4f4;
+}
+
+#variacaoProduto {
+  background-color: #f4f4f4;
+  color: #000;
+}
+
+#precoProduto {
+  background-color: #f4f4f4;
+  color: #000;
+}
+
+#cadastroPreco {
+  width: 450px;
+}

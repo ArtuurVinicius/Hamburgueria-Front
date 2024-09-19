@@ -1,12 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getCategory, createCategory, updateCategory, deleteCategory } from "../../services/categoryService";
 import './style.css';
+import { useNavigate } from 'react-router-dom'; // Se estiver usando React Router
 
 function CadCategorias() {
     const [categories, setCategories] = useState([]);
     const [categoryName, setCategoryName] = useState('');
     const [editingCategory, setEditingCategory] = useState(null);
+    const navigate = useNavigate(); // Hook para navegar entre páginas
 
-    const handleAddCategory = () => {
+    useEffect(() => {
+        const loadCategories = async () => {
+            const categoryData = await getCategory();
+            setCategories(categoryData);
+        };
+        loadCategories();
+    }, []);
+
+    const handleAddCategory = async () => {
         if (categoryName.trim() === '') {
             alert('O nome da categoria não pode estar vazio.');
             return;
@@ -17,44 +28,67 @@ function CadCategorias() {
             return;
         }
 
-        setCategories([...categories, { id: Date.now(), name: categoryName, productCount: 0 }]);
+        const newCategory = { name: categoryName, productCount: 0 };
+
+        await createCategory(newCategory);
+        
+        const updatedCategories = await getCategory();
+        setCategories(updatedCategories);
+
         setCategoryName('');
     };
 
-    const handleEditCategory = (id) => {
+    const handleEditCategory = async (idCategory) => {
         const newName = prompt('Digite o novo nome da categoria:');
         if (newName && !categories.some(cat => cat.name === newName)) {
-            setCategories(categories.map(cat => cat.id === id ? { ...cat, name: newName } : cat));
+
+            await updateCategory(idCategory, { name: newName });
+            
+
+            const updatedCategories = await getCategory();
+            setCategories(updatedCategories);
         } else {
             alert('Nome inválido ou já existente.');
         }
         setEditingCategory(null);
     };
 
-    const handleDeleteCategory = (id) => {
+    const handleDeleteCategory = async (idCategory) => {
         if (window.confirm('Tem certeza de que deseja excluir esta categoria?')) {
-            setCategories(categories.filter(cat => cat.id !== id));
+
+            await deleteCategory(idCategory);
+            
+
+            const updatedCategories = await getCategory();
+            setCategories(updatedCategories);
         }
+    };
+
+    // Função para voltar para a página anterior
+    const handleGoBack = () => {
+        navigate(-1); // Volta para a página anterior
     };
 
     return (
         <div className="category-manager">
+            <button id="voltar" onClick={handleGoBack}>Voltar</button> {/* Botão de voltar */}
             <h1 id='tituloGerenciamento'>Gerenciamento de Categorias</h1>
             <div className="category-form">
-                <input
+                <input  
+                    id="nomeCategoria"
                     type="text"
                     value={categoryName}
                     onChange={(e) => setCategoryName(e.target.value)}
                     placeholder="Nome da Categoria"
                 />
-                <button onClick={handleAddCategory}>Adicionar Categoria</button>
+                <button id="adicionarCategoria" onClick={handleAddCategory}>Adicionar Categoria</button>
             </div>
             <ul className="category-list">
                 {categories.map(category => (
-                    <li key={category.id}>
+                    <li key={category.idCategory} id="categoria"> {/* Alterado para idCategory */}
                         <span>{category.name} ({category.productCount} produtos)</span>
-                        <button onClick={() => handleEditCategory(category.id)}>Editar</button>
-                        <button onClick={() => handleDeleteCategory(category.id)}>Excluir</button>
+                        <button id='actionEdit' onClick={() => handleEditCategory(category.idCategory)}>Editar</button> 
+                        <button id='actionRemove' onClick={() => handleDeleteCategory(category.idCategory)}>Excluir</button>
                     </li>
                 ))}
             </ul>

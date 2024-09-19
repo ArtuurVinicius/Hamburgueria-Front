@@ -40,6 +40,7 @@ const CustomerForm = ({ onSave, initialData }) => {
       <div>
         <label>Nome:</label>
         <input 
+          id="clienteNome"
           type="text" 
           value={name} 
           onChange={(e) => setName(e.target.value)} 
@@ -49,6 +50,7 @@ const CustomerForm = ({ onSave, initialData }) => {
       <div>
         <label>Telefone:</label>
         <input 
+          id="clienteTelefone"
           type="text" 
           value={phone} 
           onChange={(e) => setPhone(e.target.value)} 
@@ -59,6 +61,7 @@ const CustomerForm = ({ onSave, initialData }) => {
       <div>
         <label>Email:</label>
         <input 
+          id="clienteEmail"
           type="email" 
           value={email} 
           onChange={(e) => setEmail(e.target.value)} 
