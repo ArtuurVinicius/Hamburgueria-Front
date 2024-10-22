@@ -71,7 +71,9 @@ function CadCategorias() {
 
     return (
         <div className="category-manager">
-            <button id="voltar" onClick={handleGoBack}>Voltar</button> {/* Botão de voltar */}
+            <div className="header-container">
+                <button id="voltar" onClick={handleGoBack}>Voltar</button> {/* Botão de voltar */}
+            </div>
             <h1 id='tituloGerenciamento'>Gerenciamento de Categorias</h1>
             <div className="category-form">
                 <input  
@@ -94,6 +96,7 @@ function CadCategorias() {
             </ul>
         </div>
     );
+    
 }
 
 export default CadCategorias;

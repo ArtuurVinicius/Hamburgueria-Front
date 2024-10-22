@@ -138,10 +138,26 @@ body {
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  position: absolute; 
-  top: -250px;
-  left: -450px;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
 }
+
+@media (max-width: 768px) {
+  #voltar {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  #voltar {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
 
 #voltar:hover {
   background-color: #28A592;
@@ -150,4 +166,8 @@ body {
 #categoria {
   background-color: #f4f4f4;
   color: #000;
+}
+
+.header-container {
+  position: relative;
 }
