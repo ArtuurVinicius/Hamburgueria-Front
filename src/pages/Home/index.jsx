@@ -14,6 +14,7 @@ function Home() {
       <button onClick={() => navigate('/cadastro-precos')}>Cadastro e Vinculação de Preços aos Produtos</button>
       <button onClick={() => navigate('/cadastro-clientes')}>Cadastro de Clientes</button>
     </div>
+
   );
 }
 
