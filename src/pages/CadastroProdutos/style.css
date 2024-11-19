@@ -161,11 +161,11 @@ body {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #d44a4a;
-    color: #E1E1E1;
+    color: #000000;
   }
   
   .product-list th {
-    background-color: #1d1d1d;
+    background-color: #2EBFA5;
     color: white;
   }
   
@@ -187,7 +187,7 @@ body {
   }
   
   .cadastro {
-    background-color: #242424;
+    background-color: #2EBFA5;
   }
 
   #actionEdit {
@@ -203,6 +203,7 @@ body {
   
 #product-name {
   background-color: #f4f4f4;
+  color: #000000;
 }
 
 #product-category {
@@ -210,5 +211,9 @@ body {
 }
 
 #product-image {
+  color: #000000;
+}
+
+#product-description {
   color: #000000;
 }

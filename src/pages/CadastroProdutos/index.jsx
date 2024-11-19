@@ -15,8 +15,8 @@ function CadProdutos() {
   const [categoryFilter, setCategoryFilter] = useState("");
 
   useEffect(() => {
-    setCategories(["Burgers", "Fries", "Drinks"]); 
-    
+    setCategories(["Hamburguer", "Batata Frita", "Bebida"]);
+
     const fetchProducts = async () => {
       try {
         const productsData = await getProducts();
@@ -31,6 +31,8 @@ function CadProdutos() {
 
   const handleFormChange = (e) => {
     const { name, value, type, files } = e.target;
+    // const newValue = type === "file" ? files[0] : value;
+    // console.log(`Atualizando campo ${name} com valor:`, newValue);
     setForm({
       ...form,
       [name]: type === "file" ? files[0] : value,
@@ -200,10 +202,7 @@ function CadProdutos() {
                   <td>{product.description}</td>
                   <td>{product.category}</td>
                   <td>
-                    <button
-                      id="actionEdit"
-                      onClick={() => setSelectedProduct(product)}
-                    >
+                    <button id="actionEdit" onClick={() => setSelectedProduct(product)}>
                       Editar
                     </button>
                     <button
