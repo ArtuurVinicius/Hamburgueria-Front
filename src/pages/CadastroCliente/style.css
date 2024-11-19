@@ -73,12 +73,12 @@ body {
   }
   
   li {
-    background-color: #242424;
-    border: 1px solid #242424;
+    background-color: #28A98F;
+    border: 1px solid #28A98F;
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
-    color: #E1E1E1;
+    color: #000000;
   }
   
   li div {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './style.css';
+import { getProducts, createProduct, updateProduct, deleteProduct } from "../../services/productService"; // Importe o serviço
 
 function App() {
   const [prices, setPrices] = useState([]);
@@ -8,32 +9,63 @@ function App() {
   const [variation, setVariation] = useState("");
   const [price, setPrice] = useState("");
 
-  const addOrUpdatePrice = (priceData) => {
-    if (editingPrice) {
-      setPrices((prevPrices) =>
-        prevPrices.map((price) =>
-          price.id === editingPrice.id ? priceData : price
-        )
-      );
-      setEditingPrice(null);
-    } else {
-      setPrices([...prices, { ...priceData, id: Date.now() }]);
+  // Carrega os dados da API ao montar o componente
+  useEffect(() => {
+    const fetchPrices = async () => {
+      try {
+        const data = await getProducts(); // Obtém os produtos da API
+        setPrices(data);
+      } catch (error) {
+        console.error("Erro ao buscar produtos:", error);
+      }
+    };
+
+    fetchPrices();
+  }, []);
+
+  // Adiciona ou atualiza o preço via API
+  const addOrUpdatePrice = async (priceData) => {
+    try {
+      if (editingPrice) {
+        // Atualizar produto
+        await updateProduct(editingPrice.id, priceData);
+        setPrices((prevPrices) =>
+          prevPrices.map((price) =>
+            price.id === editingPrice.id ? { ...priceData, id: editingPrice.id } : price
+          )
+        );
+        setEditingPrice(null);
+      } else {
+        // Criar novo produto
+        const newPrice = await createProduct(priceData);
+        setPrices((prevPrices) => [...prevPrices, newPrice]);
+      }
+    } catch (error) {
+      console.error("Erro ao salvar produto:", error);
     }
   };
 
-  const removePrice = (id) => {
-    setPrices(prices.filter((price) => price.id !== id));
+  // Remove um preço via API
+  const removePrice = async (id) => {
+    try {
+      await deleteProduct(id);
+      setPrices(prices.filter((price) => price.id !== id));
+    } catch (error) {
+      console.error("Erro ao remover produto:", error);
+    }
   };
 
+  // Edita um preço
   const editPrice = (id) => {
     const priceToEdit = prices.find((price) => price.id === id);
     setEditingPrice(priceToEdit);
   };
 
-  const handleSubmit = (e) => {
+  // Submete o formulário de preço
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (product && variation && price > 0) {
-      addOrUpdatePrice({ product, variation, price });
+      await addOrUpdatePrice({ product, variation, price });
       setProduct("");
       setVariation("");
       setPrice("");
@@ -42,6 +74,7 @@ function App() {
     }
   };
 
+  // Atualiza os campos ao editar
   useEffect(() => {
     if (editingPrice) {
       setProduct(editingPrice.product);
