@@ -16,6 +16,15 @@ function CadProdutos() {
 
   useEffect(() => {
     setCategories(["Hamburguer", "Batata Frita", "Bebida"]);
+    
+    if (selectedProduct) {
+      setForm({
+        name: selectedProduct.name,
+        description: selectedProduct.description,
+        image: selectedProduct.image,
+        category: selectedProduct.category,
+      });
+    }
 
     const fetchProducts = async () => {
       try {
@@ -27,7 +36,7 @@ function CadProdutos() {
     };
 
     fetchProducts();
-  }, []);
+  }, [selectedProduct]);
 
   const handleFormChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -157,7 +166,7 @@ function CadProdutos() {
           </button>
           <button
             className="botaoCadastro"
-            type="reset"
+            type="button"
             onClick={() =>
               setForm({ name: "", description: "", image: null, category: "" })
             }
