@@ -104,14 +104,12 @@ body {
 
 #actionEdit {
   background-color: #f4f4f4;
-  border: 3px solid #83bbf7;
   color: #83bbf7;
   margin-right: 5px;
 }
 
 #actionRemove {
   background-color: #f4f4f4;
-  border: 3px solid #f7838f;
   color: #f7838f;
   margin-right: 5px;
 }
