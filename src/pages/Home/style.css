@@ -1,37 +1,41 @@
-.container {
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: #2EBFA5;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
-  margin-top: 50px;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  gap: 20px;
 }
 
-button {
-  width: 300px;
+.sidebar #pName {
+  background: #E1E1E1;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sidebar button {
+  width: 100%; /* Botões ocupam toda a largura da sidebar */
   padding: 10px 20px;
-  font-size: 20px;
-  background-color: #ff6b6b;
-  color: #111;
-  border: 3px solid #575757;
-  border-radius: 5px;
+  font-size: 16px;
+  background-color: #5BD3BE;
+  color: #111; /* Texto escuro */
   cursor: pointer;
   text-align: center;
   transition: 0.3s ease;
 }
 
-button:hover {
-  background-color: #fdfdfd;
-}
-
-#pName {
-  background: #E1E1E1; 
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 48px;
-  font-weight: bold; 
-}
-
-#home {
-  width: 450px;
-  height: 450px;
+/* Efeito hover nos botões */
+.sidebar button:hover {
+  background-color: #fdfdfd; /* Fundo claro no hover */
+  color: #111; /* Texto permanece escuro */
 }
