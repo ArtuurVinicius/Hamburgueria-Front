@@ -13,7 +13,7 @@ export const createCustomer = async (customer) => {
 };
 
 export const updateCustomer = async (id, customer) => {
-    const response = await axios.put(`${API_URL}/${id}`, customer); // PUT para update completo
+    const response = await axios.patch(`${API_URL}/${id}`, customer);
     return response.data;
 };
 
