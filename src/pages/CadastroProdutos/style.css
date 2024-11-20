@@ -58,7 +58,6 @@ body {
 }
 
   .product-form select:focus {
-    border-color: #f55151;
     outline: none;
   }
   
@@ -190,10 +189,6 @@ body {
     background-color: #2EBFA5;
   }
 
-  #actionEdit {
-    margin-bottom: 5px;
-  }
-  
   .no-products {
     text-align: center;
     color: #fc8686;

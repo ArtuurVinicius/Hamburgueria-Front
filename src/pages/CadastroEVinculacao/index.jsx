@@ -10,11 +10,10 @@ function App() {
   const [variation, setVariation] = useState("");
   const [price, setPrice] = useState("");
 
-  // Carrega os dados da API ao montar o componente
   useEffect(() => {
     const fetchPrices = async () => {
       try {
-        const data = await getProducts(); // Obtém os produtos da API
+        const data = await getProducts();
         setPrices(data);
       } catch (error) {
         console.error("Erro ao buscar produtos:", error);
@@ -24,11 +23,9 @@ function App() {
     fetchPrices();
   }, []);
 
-  // Adiciona ou atualiza o preço via API
   const addOrUpdatePrice = async (priceData) => {
     try {
       if (editingPrice) {
-        // Atualizar produto
         await updateProduct(editingPrice.id, priceData);
         setPrices((prevPrices) =>
           prevPrices.map((price) =>
@@ -37,7 +34,6 @@ function App() {
         );
         setEditingPrice(null);
       } else {
-        // Criar novo produto
         const newPrice = await createProduct(priceData);
         setPrices((prevPrices) => [...prevPrices, newPrice]);
       }
@@ -46,7 +42,6 @@ function App() {
     }
   };
 
-  // Remove um preço via API
   const removePrice = async (id) => {
     try {
       await deleteProduct(id);
@@ -56,19 +51,17 @@ function App() {
     }
   };
 
-  // Edita um preço
   const editPrice = (id) => {
     const priceToEdit = prices.find((price) => price.id === id);
     setEditingPrice(priceToEdit);
   };
 
-  // Submete o formulário de preço
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (name && category && variation && price > 0) {
       await addOrUpdatePrice({ name, category, variation, price });
-      setName(""); // Limpa o campo de nome
-      setCategory(""); // Limpa o campo de categoria
+      setName("");
+      setCategory("");
       setVariation("");
       setPrice("");
     } else {
@@ -76,17 +69,15 @@ function App() {
     }
   };
 
-  // Atualiza os campos ao editar
   useEffect(() => {
     if (editingPrice) {
-      setName(editingPrice.name); // Atualiza 'name'
+      setName(editingPrice.name);
       setCategory(editingPrice.category);
       setVariation(editingPrice.variation);
       setPrice(editingPrice.price);
     }
   }, [editingPrice]);
 
-  // Função para voltar à página anterior
   const goBack = () => {
     window.history.back();
   };
@@ -106,7 +97,7 @@ function App() {
             <input
               id="nomeProduto"
               type="text"
-              value={name} // Alterado para 'name'
+              value={name}
               onChange={(e) => setName(e.target.value)}
               required
             />

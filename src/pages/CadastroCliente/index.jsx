@@ -104,6 +104,7 @@ const CadastroCliente = () => {
           <input
             id="clienteNome"
             type="text"
+            placeholder="João"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
@@ -125,6 +126,7 @@ const CadastroCliente = () => {
           <input
             id="clienteEmail"
             type="email"
+            placeholder="joao@gmail.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -166,7 +168,6 @@ const CadastroCliente = () => {
     );
   };
 
-  // Função para o botão de voltar
   const handleBack = () => {
     window.history.back();
   };

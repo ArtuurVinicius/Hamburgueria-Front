@@ -78,6 +78,8 @@ body {
 
 .category-list span {
   margin-right: 5px;
+  flex-grow: 1; /* Faz com que o nome da categoria ocupe o máximo de espaço disponível */
+  margin-right: 10px;
 }
 
 .category-list button {
@@ -104,13 +106,11 @@ body {
 
 #actionEdit {
   background-color: #f4f4f4;
-  color: #83bbf7;
   margin-right: 5px;
 }
 
 #actionRemove {
   background-color: #f4f4f4;
-  color: #f7838f;
   margin-right: 5px;
 }
 

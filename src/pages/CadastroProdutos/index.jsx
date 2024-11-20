@@ -113,6 +113,7 @@ function CadProdutos() {
           type="text"
           id="product-name"
           className="cadastro"
+          placeholder="Hambúrguer"
           name="name"
           value={form.name}
           onChange={handleFormChange}
@@ -123,6 +124,7 @@ function CadProdutos() {
         <textarea
           id="product-description"
           className="cadastro"
+          placeholder="Sem cebola"
           name="description"
           value={form.description}
           onChange={handleFormChange}
