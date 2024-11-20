@@ -156,3 +156,21 @@ body {
  #card {
   background-color: #28A98F;
  }
+
+ .formButton {
+  width: 25vw;
+ }
+
+ #voltar {
+  background-color: #2EBFA5;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+}

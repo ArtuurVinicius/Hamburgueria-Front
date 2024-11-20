@@ -35,8 +35,8 @@ const CadastroCliente = () => {
   };
 
   const handleEdit = (id) => {
-    const customer = customers.find(c => c.id === id); // Busca pelo ID
-    setEditingCustomer(customer); // Atualiza o estado com o cliente a ser editado
+    const customer = customers.find(c => c.id === id);
+    setEditingCustomer(customer);
   };
 
   const handleDelete = async (id) => {
@@ -89,6 +89,14 @@ const CadastroCliente = () => {
       onSave({ id, name, phone, email });
     };
 
+    const handleCancel = () => {
+      setName('');
+      setPhone('');
+      setEmail('');
+      setId(null);
+      setError('');
+    };
+
     return (
       <form onSubmit={handleSubmit}>
         <div>
@@ -123,7 +131,10 @@ const CadastroCliente = () => {
           />
         </div>
         {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit">Salvar</button>
+        <div className="formActions">
+          <button className="formButton" type="submit">Salvar</button>
+          <button className="formButton" type="button" onClick={handleCancel}>Cancelar</button>
+        </div>
       </form>
     );
   };
@@ -145,7 +156,7 @@ const CadastroCliente = () => {
                 <strong>Email:</strong> {customer.email}
               </div>
               <div className="formActions">
-                <button id="actionEdit" onClick={() => onEdit(customer.id)}>Editar</button> {/* Passa o ID */}
+                <button id="actionEdit" onClick={() => onEdit(customer.id)}>Editar</button>
                 <button id="actionRemove" onClick={() => onDelete(customer.id)}>Remover</button>
               </div>
             </li>
@@ -155,8 +166,14 @@ const CadastroCliente = () => {
     );
   };
 
+  // Função para o botão de voltar
+  const handleBack = () => {
+    window.history.back();
+  };
+
   return (
     <div className="container">
+      <button id="voltar" onClick={handleBack}>Voltar</button> {/* Botão de Voltar */}
       <h1>Cadastro de Clientes</h1>
       <CustomerForm
         onSave={handleSave}
