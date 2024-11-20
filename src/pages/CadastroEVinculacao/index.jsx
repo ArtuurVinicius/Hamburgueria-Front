@@ -145,13 +145,12 @@ function App() {
         </form>
       </div>
 
-      {/* Lista de Preços */}
       <div>
         <h2>Preços Cadastrados</h2>
         <ul>
           {prices.map((price) => (
             <li key={price.id}>
-              <div><strong>Nome:</strong> {price.name}</div> {/* Alterado para 'name' */}
+              <div><strong>Nome:</strong> {price.name}</div>
               <div><strong>Categoria:</strong> {price.category}</div>
               <div><strong>Variação:</strong> {price.variation}</div>
               <div><strong>Preço:</strong> R${price.price.toFixed(2)}</div>
