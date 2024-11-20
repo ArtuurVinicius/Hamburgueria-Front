@@ -9,9 +9,9 @@ function Home() {
   return (
     <div className='container' id='home'>
       <h1 id='pName'>Hamburgueria</h1>
-      <button onClick={() => navigate('/categoria-alimentos')}>Cadastro de Categorias de Alimentos</button>
+      <button onClick={() => navigate('/categoria-alimentos')}>Cadastro de Categorias</button>
       <button onClick={() => navigate('/cadastro-produtos')}>Cadastro de Produtos</button>
-      <button onClick={() => navigate('/cadastro-precos')}>Cadastro e Vinculação de Preços aos Produtos</button>
+      <button onClick={() => navigate('/cadastro-precos')}>Vinculação de Preços</button>
       <button onClick={() => navigate('/cadastro-clientes')}>Cadastro de Clientes</button>
     </div>
   );

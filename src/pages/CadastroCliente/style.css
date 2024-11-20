@@ -129,8 +129,8 @@ body {
     box-shadow: 0 0 0 0;
     border: 3px solid #333333;
     outline: 0;
-    color: #E1E1E1;
-    background-color: #242424;
+    color: #000000;
+    background-color: #f4f4f4;
   }
   
  #clienteNome{

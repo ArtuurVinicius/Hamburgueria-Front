@@ -5,7 +5,8 @@ import { getProducts, createProduct, updateProduct, deleteProduct } from "../../
 function App() {
   const [prices, setPrices] = useState([]);
   const [editingPrice, setEditingPrice] = useState(null);
-  const [product, setProduct] = useState("");
+  const [name, setName] = useState(""); // Alterado para 'name'
+  const [category, setCategory] = useState("");
   const [variation, setVariation] = useState("");
   const [price, setPrice] = useState("");
 
@@ -64,9 +65,10 @@ function App() {
   // Submete o formulário de preço
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (product && variation && price > 0) {
-      await addOrUpdatePrice({ product, variation, price });
-      setProduct("");
+    if (name && category && variation && price > 0) {
+      await addOrUpdatePrice({ name, category, variation, price });
+      setName(""); // Limpa o campo de nome
+      setCategory(""); // Limpa o campo de categoria
       setVariation("");
       setPrice("");
     } else {
@@ -77,29 +79,50 @@ function App() {
   // Atualiza os campos ao editar
   useEffect(() => {
     if (editingPrice) {
-      setProduct(editingPrice.product);
+      setName(editingPrice.name); // Atualiza 'name'
+      setCategory(editingPrice.category);
       setVariation(editingPrice.variation);
       setPrice(editingPrice.price);
     }
   }, [editingPrice]);
 
+  // Função para voltar à página anterior
+  const goBack = () => {
+    window.history.back();
+  };
+
   return (
     <div className="container" id="cadastroPreco">
-      <h1>Cadastro e Vinculação de Preços aos Produtos</h1>
+      {/* Botão de Voltar */}
+      <button id="voltar" onClick={goBack}>Voltar</button>
+
+      <h1>Vinculação de Preços</h1>
 
       {/* Formulário de Preço */}
       <div style={{ position: 'relative' }}>
         <form onSubmit={handleSubmit}>
           <div>
-            <label>Produto:</label>
+            <label>Nome:</label>
             <input
-              id="precoProduto"
+              id="nomeProduto"
               type="text"
-              value={product}
-              onChange={(e) => setProduct(e.target.value)}
+              value={name} // Alterado para 'name'
+              onChange={(e) => setName(e.target.value)}
               required
             />
           </div>
+
+          <div>
+            <label>Categoria:</label>
+            <input
+              id="categoriaProduto"
+              type="text"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              required
+            />
+          </div>
+
           <div>
             <label>Variação:</label>
             <select
@@ -137,7 +160,8 @@ function App() {
         <ul>
           {prices.map((price) => (
             <li key={price.id}>
-              <div><strong>Produto:</strong> {price.product}</div>
+              <div><strong>Nome:</strong> {price.name}</div> {/* Alterado para 'name' */}
+              <div><strong>Categoria:</strong> {price.category}</div>
               <div><strong>Variação:</strong> {price.variation}</div>
               <div><strong>Preço:</strong> R${price.price.toFixed(2)}</div>
               <div className="formActions">

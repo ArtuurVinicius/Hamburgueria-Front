@@ -7,7 +7,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  overflow-x: hidden; /* Evita o scroll horizontal */
+  overflow-x: hidden;
 }
 
 .container {
@@ -53,7 +53,7 @@ select {
   box-sizing: border-box;
   font-size: 14px;
   color: #E1E1E1;
-  background-color: #1D1D1D;
+  background-color: #f4f4f4;
 }
 
 select:focus {
@@ -150,4 +150,22 @@ p {
 
 #cadastroPreco {
   width: 450px;
+}
+
+#voltar {
+  background-color: #2EBFA5;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+}
+
+#category {
+  color: #f4f4f4;
 }
