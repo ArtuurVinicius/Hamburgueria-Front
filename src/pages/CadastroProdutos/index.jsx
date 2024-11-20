@@ -131,36 +131,6 @@ function CadProdutos() {
           required
         ></textarea>
 
-        <label htmlFor="product-image">Imagem do Produto (opcional):</label>
-        <div className="file-input-wrapper">
-          <button type="button" className="custom-file-button">
-            Escolher Arquivo
-          </button>
-          <input
-            type="file"
-            id="product-image"
-            name="image"
-            accept="image/*"
-            onChange={handleFormChange}
-          />
-        </div>
-
-        <label htmlFor="product-category">Categoria:</label>
-        <select
-          id="product-category"
-          className="cadastro"
-          name="category"
-          value={form.category}
-          onChange={handleFormChange}
-          required
-        >
-          <option value="">Selecione uma categoria</option>
-          {categories.map((cat) => (
-            <option key={cat} value={cat}>
-              {cat}
-            </option>
-          ))}
-        </select>
 
         <div className="button-group">
           <button className="botaoCadastro" type="submit">
@@ -180,21 +150,6 @@ function CadProdutos() {
 
       <div className="product-list">
         <h2>Lista de Produtos</h2>
-
-        <label htmlFor="category-filter">Filtrar por Categoria:</label>
-        <select
-          id="category-filter"
-          className="cadastro"
-          value={categoryFilter}
-          onChange={(e) => setCategoryFilter(e.target.value)}
-        >
-          <option value="">Todas</option>
-          {categories.map((cat) => (
-            <option key={cat} value={cat}>
-              {cat}
-            </option>
-          ))}
-        </select>
 
         <table>
           <thead>

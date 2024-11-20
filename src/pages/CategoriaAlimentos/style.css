@@ -78,7 +78,7 @@ body {
 
 .category-list span {
   margin-right: 5px;
-  flex-grow: 1; /* Faz com que o nome da categoria ocupe o máximo de espaço disponível */
+  flex-grow: 1;
   margin-right: 10px;
 }
 
