@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getProducts, createProduct, updateProduct, deleteProduct } from "../../services/productService";
+import { getCategory } from "../../services/categoryService";
 import "./style.css";
 
 function CadProdutos() {
@@ -11,37 +12,40 @@ function CadProdutos() {
     description: "",
     image: null,
     category: "",
+    price: 0,
   });
   const [categoryFilter, setCategoryFilter] = useState("");
 
   useEffect(() => {
-    setCategories(["Hamburguer", "Batata Frita", "Bebida"]);
-    
+    const fetchCategoriesAndProducts = async () => {
+      try {
+        const categoriesData = await getCategory();
+        setCategories(categoriesData);
+
+        const productsData = await getProducts();
+        setProducts(productsData);
+      } catch (error) {
+        console.error("Erro ao buscar dados iniciais:", error);
+      }
+    };
+
+    fetchCategoriesAndProducts();
+  }, []);
+
+  useEffect(() => {
     if (selectedProduct) {
       setForm({
         name: selectedProduct.name,
         description: selectedProduct.description,
         image: selectedProduct.image,
         category: selectedProduct.category,
+        price: selectedProduct.price,
       });
     }
-
-    const fetchProducts = async () => {
-      try {
-        const productsData = await getProducts();
-        setProducts(productsData);
-      } catch (error) {
-        console.error("Erro ao buscar produtos", error);
-      }
-    };
-
-    fetchProducts();
   }, [selectedProduct]);
 
   const handleFormChange = (e) => {
     const { name, value, type, files } = e.target;
-    // const newValue = type === "file" ? files[0] : value;
-    // console.log(`Atualizando campo ${name} com valor:`, newValue);
     setForm({
       ...form,
       [name]: type === "file" ? files[0] : value,
@@ -59,7 +63,7 @@ function CadProdutos() {
 
       const productsData = await getProducts();
       setProducts(productsData);
-      setForm({ name: "", description: "", image: null, category: "" });
+      setForm({ name: "", description: "", image: null, category: "", price: 0 });
       setSelectedProduct(null);
     } catch (error) {
       console.error("Erro ao salvar produto", error);
@@ -86,20 +90,20 @@ function CadProdutos() {
 
   return (
     <div className="product-management">
-      <button 
-        id="voltar" 
-        onClick={handleGoBack} 
-        style={{ 
-          position: 'absolute', 
-          top: '10px', 
-          left: '10px', 
-          backgroundColor: '#2EBFA5', 
-          color: 'white', 
-          border: 'none', 
-          padding: '10px 20px', 
-          borderRadius: '5px', 
-          cursor: 'pointer', 
-          fontSize: '16px' 
+      <button
+        id="voltar"
+        onClick={handleGoBack}
+        style={{
+          position: "absolute",
+          top: "10px",
+          left: "10px",
+          backgroundColor: "#2EBFA5",
+          color: "white",
+          border: "none",
+          padding: "10px 20px",
+          borderRadius: "5px",
+          cursor: "pointer",
+          fontSize: "16px",
         }}
       >
         Voltar
@@ -131,6 +135,34 @@ function CadProdutos() {
           required
         ></textarea>
 
+        <label htmlFor="product-price">Preço:</label>
+        <input
+          type="number"
+          id="product-price"
+          className="cadastro"
+          placeholder="Digite o preço"
+          name="price"
+          value={form.price}
+          onChange={(e) => setForm({ ...form, price: parseFloat(e.target.value) })}
+          required
+        />
+
+        <label htmlFor="product-category">Categoria:</label>
+        <select
+          id="product-category"
+          className="cadastro"
+          name="category"
+          value={form.category}
+          onChange={handleFormChange}
+          required
+        >
+          <option value="">Selecione uma categoria</option>
+          {categories.map((cat) => (
+            <option key={cat.id} value={cat.name}>
+              {cat.name}
+            </option>
+          ))}
+        </select>
 
         <div className="button-group">
           <button className="botaoCadastro" type="submit">
@@ -140,7 +172,7 @@ function CadProdutos() {
             className="botaoCadastro"
             type="button"
             onClick={() =>
-              setForm({ name: "", description: "", image: null, category: "" })
+              setForm({ name: "", description: "", image: null, category: "", price: 0 })
             }
           >
             Cancelar
@@ -156,7 +188,7 @@ function CadProdutos() {
             <tr>
               <th>Nome</th>
               <th>Descrição</th>
-              <th>Categoria</th>
+              <th>Preço</th>
               <th>Ações</th>
             </tr>
           </thead>
@@ -166,7 +198,9 @@ function CadProdutos() {
                 <tr key={product.id}>
                   <td>{product.name}</td>
                   <td>{product.description}</td>
-                  <td>{product.category}</td>
+                  <td>
+                    R${typeof product.price === "number" ? product.price.toFixed(2) : "N/A"}
+                  </td>
                   <td>
                     <button id="actionEdit" onClick={() => setSelectedProduct(product)}>
                       Editar

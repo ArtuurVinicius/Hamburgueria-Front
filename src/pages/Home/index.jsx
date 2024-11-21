@@ -11,7 +11,7 @@ function Home() {
       <h1 id='pName'>Hamburgueria</h1>
       <button onClick={() => navigate('/categoria-alimentos')}>Cadastro de Categorias</button>
       <button onClick={() => navigate('/cadastro-produtos')}>Cadastro de Produtos</button>
-      <button onClick={() => navigate('/cadastro-precos')}>Vinculação de Preços</button>
+      {/* <button onClick={() => navigate('/cadastro-precos')}>Vinculação de Preços</button> */}
       <button onClick={() => navigate('/cadastro-clientes')}>Cadastro de Clientes</button>
     </div>
   );
